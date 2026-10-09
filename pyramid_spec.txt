@@ -1,0 +1,13 @@
+Create a single-page app in a single HTML file with the following requirements:
+- Name: Pyramid Solitaire
+- Goal: Play the standard solitaire game of Pyramid. Details are provided below.
+- The game of Clock Solitaire is attached to this request. It serves as a UI model. The background, the cards, the buttons, and the resizing of the game depending on the size of the game window should match the Clock game.
+- There is a difference for the layout. In this game the Draw Pile is in the lower-left below the Pyramid. The Waste Pile is to the right of the Draw Pile.
+- To win the game, the Pyramid should be removed.
+- As in standard Pyramid, two cards that have a value with a sum of 13 can be clicked to remove both of them. A King is a special case - it is removed by itself.
+- Cards are drawn 1 at a time
+- The draw pile can be gone through an unlimited number of times
+- The top of the waste can be used to click to get the sum of 13.
+- The game has a New Game button. When it is clicked on, the user has to confirm to start a new game.
+- Cards are selected by clicking on them. There is no automated option.
+- When the player wins, there is a victory animation. 

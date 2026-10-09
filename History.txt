@@ -1,0 +1,17 @@
+Version 01.01	25 minutes dev	1 minute AI	4 minutes test		30 minutes
+
+My mom asked me if I'd make a version of Pyramid Solitaire. Not a problem:
+my family asks for a game with moderate difficulty to make, and I'm there.
+This one I'm using Google Gemini. It's a standard game, with some variations.
+I asked Gemini to consider all the variations and ask me to provide the 
+answers. It did, then I did. Then I wrote up an initial spec with all those
+variations made clear. I also included the Clock Solitaire game (also
+made via Gemini) as the basis for UI. The initial attempt was impressive!
+For sure, it is playable. It even did something slick and build with the MIT
+License link.
+I do see some changes. I will document and fix issues from here.
+
+
+TODO: Do I want the directions up top? I'm not sure I do, not sure it helps.
+TODO: The notification of X + Y = 13! Cute. Don't need it get rid of it.
+TODO: Do I like that discard pile? Meh.
