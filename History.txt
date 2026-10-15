@@ -12,6 +12,25 @@ License link.
 I do see some changes. I will document and fix issues from here.
 
 
+Version 01.01 was released on 10/11/26
+
+
+Version 02.01	9 minutes dev	1 minute AI	2 minutes test		42 minutes
+
+In the initial version I noticed an issue. It worked well on laptop and iPhone.
+For iPad, it worked, but the numbers and letters were rather strong. I had 
+seen this problem on my Klondike game. I showed that to Gemini. That worked,
+but introduced a new error. After that change, the sizing wouldn't work on
+my iPhone. The game did not fit on the screen. I asked Gemini to fix that.
+It found a one-line change.
+Side note: I added applying this fix to Klondike. That can use the fix too.
+
+
+
+TODO: Add a Undo button in the lower-left, like in Klondike
+TODO: Update READ.ME to reflect Mobile status. The functional exists; it
+	is totally missing from this page.
 TODO: Do I want the directions up top? I'm not sure I do, not sure it helps.
 TODO: The notification of X + Y = 13! Cute. Don't need it get rid of it.
 TODO: Do I like that discard pile? Meh.
+

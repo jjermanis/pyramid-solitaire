@@ -9,6 +9,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; touch-action: manipulation; }
 
   :root {
+    --scale: 1;
     --font-rank: 18px;
     --font-suit: 39px;
     --font-ui-sm: 12px;
@@ -18,8 +19,9 @@
     --font-ui-h2: 20px;
     --font-ui-h1: 30px;
     --font-ui-btn: 16px;
-    --font-stock: 28px;
+    --font-stock: 36px;
     --font-bounce: 26px;
+    --font-debug: 11px;
   }
 
   body {
@@ -166,13 +168,13 @@
     position: absolute;
     top: 2px;
     right: 3px;
-    font-size: 18px;
+    font-size: var(--font-rank);
     font-weight: bold;
     font-family: Georgia, serif;
   }
 
   .card-rank {
-    font-size: 18px;
+    font-size: var(--font-rank);
     font-weight: bold;
     font-family: Georgia, serif;
   }
@@ -182,7 +184,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 39px;
+    font-size: var(--font-suit);
     line-height: 1;
   }
 
@@ -827,21 +829,41 @@ document.getElementById('btn-confirm-no').addEventListener('click', () => {
 });
 
 // ═══════════════════════════════════════════════════════
-//  RESPONSIVE SCALING
+//  RESPONSIVE SCALING (Supports iPad, Mobile & Desktop)
 // ═══════════════════════════════════════════════════════
 function applyScale() {
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
-
-  // Canvas dimensions: 480 x 640
+  const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+  const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  
   const scaleX = vw / 480;
   const scaleY = vh / 640;
   const scale = Math.min(scaleX, scaleY);
-
+  
   const wrapper = document.getElementById('game-wrapper');
   wrapper.style.zoom = scale;
+
+  // Explicitly scale fonts on WebKit/iPadOS Safari where CSS zoom does not resize text
+  const isWebKit = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || 
+                   (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+  const fontScale = isWebKit ? scale : 1;
+
+  document.documentElement.style.setProperty('--font-rank',   (18 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-suit',   (39 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-ui-sm',  (12 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-ui-md',  (14 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-ui-lg',  (15 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-ui-xl',  (16 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-ui-h2',  (20 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-ui-h1',  (30 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-ui-btn', (16 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-stock',  (36 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-bounce', (26 * fontScale) + 'px');
+  document.documentElement.style.setProperty('--font-debug',  (11 * fontScale) + 'px');
 }
 
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', applyScale);
+}
 window.addEventListener('resize', applyScale);
 window.addEventListener('orientationchange', applyScale);
 applyScale();
