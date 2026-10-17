@@ -26,8 +26,22 @@ It found a one-line change.
 Side note: I added applying this fix to Klondike. That can use the fix too.
 
 
+Version 02.02	21 minutes dev	1 minute AI	4 minutes test		1 hour 8
 
-TODO: Add a Undo button in the lower-left, like in Klondike
+It was pointed out that an Undo button would be handy. You could draw another
+card, then realize that card had a move. You'd have to cycle through the whole
+deck to get back to it. An Undo would make that quick and easy.
+To implement this, similar other games, I wanted to put Undo in the lower-left
+corner. But I didn't want the draw pile and the Undo to be so close. To avoid 
+that, I reverse the three card stacks on the button. After this Discard would
+be over Undo. Which is fine: there is no action ever to take on Discard. The
+draw and stock piles would be flipped on the right-side. This aligns them more
+like they were done in my Klondike solitaire.
+Gemini and I did this in a two-step process. Moved the existing card stacks.
+Then, added and implemented the Undo button.
+
+
+
 TODO: Update READ.ME to reflect Mobile status. The functional exists; it
 	is totally missing from this page.
 TODO: Do I want the directions up top? I'm not sure I do, not sure it helps.
